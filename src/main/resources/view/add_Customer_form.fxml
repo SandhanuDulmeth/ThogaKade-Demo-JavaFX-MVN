@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #80e5ff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddCustomerFormController">
+   <children>
+      <JFXHamburger layoutX="-57.0" layoutY="85.0" />
+      <JFXButton layoutX="324.0" layoutY="330.0" onAction="#btnAddOnAction" prefHeight="41.0" prefWidth="112.0" ripplerFill="#f2f2f2" style="-fx-background-color: green;" text="Add" textFill="WHITE" />
+      <JFXTextField fx:id="TxtId" layoutX="152.0" layoutY="105.0" prefHeight="25.0" prefWidth="268.0" promptText="ID" />
+      <JFXTextField fx:id="TxtName" layoutX="152.0" layoutY="151.0" prefHeight="25.0" prefWidth="268.0" promptText="Name" />
+      <JFXTextField fx:id="TxtAddress" layoutX="152.0" layoutY="200.0" prefHeight="25.0" prefWidth="268.0" promptText="Address" />
+      <JFXTextField fx:id="TxtSalary" layoutX="152.0" layoutY="258.0" prefHeight="25.0" prefWidth="268.0" promptText="Salary" />
+      <JFXButton layoutX="456.0" layoutY="330.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="85.0" ripplerFill="#ee0909" style="-fx-background-color: #E3DC03;" text="Clear" textFill="#3c0000" />
+      <Text fill="#161294" layoutX="119.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Customer Form" wrappingWidth="466.13671875">
+         <font>
+            <Font name="System Bold" size="34.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

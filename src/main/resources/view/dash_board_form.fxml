@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardFormController">
+   <children>
+      <JFXButton layoutX="235.0" layoutY="121.0" onAction="#btnAddCustomerOnAction" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: #99ff33;" text="Add Customer" />
+      <JFXButton layoutX="235.0" layoutY="175.0" onAction="#btnViewCustomerOnAction" style="-fx-background-color: #ff8000;" text="View Customer" />
+   </children>
+</AnchorPane>
