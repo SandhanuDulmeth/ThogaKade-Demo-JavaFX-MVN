@@ -13,6 +13,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.Customer;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -53,7 +56,12 @@ public void loadTable(){
     objects.addAll(customerList);
     tblCus.setItems(objects);
 
-
+    try {
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/thogakade", "root", "1234");
+        System.out.println(connection);
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
+    }
 }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
