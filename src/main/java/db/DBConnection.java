@@ -13,7 +13,7 @@ public class DBConnection {
 
 
     private DBConnection() throws SQLException {
-   connection= DriverManager.getConnection("jdbc:mysql//localhost:3306/thogakade","root","1234");
+   connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/thogakade","root","1234");
     }
 
     public static DBConnection getINSTANCE() throws SQLException {
