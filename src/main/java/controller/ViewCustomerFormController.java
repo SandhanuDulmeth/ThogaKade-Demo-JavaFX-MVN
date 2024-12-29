@@ -58,6 +58,7 @@ public void loadTable(){
 
     try {
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/thogakade", "root", "1234");
+
         System.out.println(connection);
     } catch (SQLException e) {
         throw new RuntimeException(e);
