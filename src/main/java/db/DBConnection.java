@@ -1,25 +1,29 @@
 package db;
 
-import model.Customer;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+
 
 public class DBConnection {
-    private static DBConnection INSTANCE;
+    private static DBConnection dbConnection;
+    private final Connection connection;
 
-private ArrayList<Customer> customerArrayList;
-    private DBConnection(){
-    customerArrayList=new ArrayList<>();
+
+    private DBConnection() throws SQLException {
+   connection= DriverManager.getConnection("jdbc:mysql//localhost:3306/thogakade","root","1234");
     }
 
-    public static DBConnection getINSTANCE() {
-        if (INSTANCE==null){
-            return INSTANCE=new DBConnection();
+    public static DBConnection getINSTANCE() throws SQLException {
+        if (dbConnection ==null) {
+            return dbConnection = new DBConnection();
         }
-        return INSTANCE;
+        return dbConnection;
     }
-    public List<Customer> getConnection(){
-        return customerArrayList;
+
+    public Connection getConnection() {
+        return connection;
     }
 }

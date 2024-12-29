@@ -1,17 +1,30 @@
 package controller;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import db.DBConnection;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import model.Customer;
+import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
 
-import java.util.List;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class AddCustomerFormController {
+public class AddCustomerFormController implements Initializable {
+
+    @FXML
+    private JFXComboBox ComboBoxTitle;
+
+    @FXML
+    private DatePicker DatePickerDOB;
 
     @FXML
     private JFXTextField TxtAddress;
+
+    @FXML
+    private JFXTextField TxtCity;
 
     @FXML
     private JFXTextField TxtId;
@@ -20,27 +33,26 @@ public class AddCustomerFormController {
     private JFXTextField TxtName;
 
     @FXML
+    private JFXTextField TxtPostalCode;
+
+    @FXML
+    private JFXTextField TxtProvince;
+
+    @FXML
     private JFXTextField TxtSalary;
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
 
-
-        List<Customer> connectionArray = DBConnection.getINSTANCE().getConnection();
-        connectionArray.add(new Customer(TxtId.getText(),TxtName.getText(),TxtAddress.getText(),TxtSalary.getText()));
-
-        clearTxt();
     }
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
-        clearTxt();
+
     }
 
-    private void clearTxt() {
-        TxtId.setText(null);
-        TxtName.setText(null);
-        TxtAddress.setText(null);
-        TxtSalary.setText(null);
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ComboBoxTitle.setItems(FXCollections.observableArrayList("Mr.","Mrs.","Miss","Ms"));
     }
 }
