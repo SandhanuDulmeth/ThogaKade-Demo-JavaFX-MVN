@@ -45,31 +45,36 @@ public class AddCustomerFormController implements Initializable {
 
     @FXML
     void btnAddOnAction(ActionEvent event) throws SQLException {
-
-        if (ComboBoxTitle.getValue()!=null) {
+        System.out.println("l");
+        if (ComboBoxTitle.getValue() != null) {
             Connection connection = DBConnection.getINSTANCE().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO customer VALUES(?,?,?,?,?,?,?,?,?)");
             preparedStatement.setString(1, TxtId.getText());
             preparedStatement.setString(2, (String) ComboBoxTitle.getValue());
             preparedStatement.setString(3, TxtName.getText());
             preparedStatement.setDate(4, Date.valueOf(DatePickerDOB.getValue()));
-            preparedStatement.setInt(5, Integer.parseInt(TxtSalary.getText()));
+            preparedStatement.setDouble(5, Double.parseDouble(TxtSalary.getText()));
             preparedStatement.setString(6, TxtAddress.getText());
             preparedStatement.setString(7, TxtCity.getText());
             preparedStatement.setString(8, TxtProvince.getText());
             preparedStatement.setString(9, TxtPostalCode.getText());
-        }else{
-            new Alert(Alert.AlertType.ERROR,"Please Select a Title").show();
+//           int i = preparedStatement.executeUpdate();
+//            if (i > 0) {
+//                new Alert(Alert.AlertType.INFORMATION, "Added").show();
+//            } else {
+//                new Alert(Alert.AlertType.ERROR, "Added Fail").show();
+//            }
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Please Select a Title").show();
         }
     }
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
-
+        clearAddForm();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void clearAddForm() {
         Connection connection = null;
         try {
             connection = DBConnection.getINSTANCE().getConnection();
@@ -77,17 +82,22 @@ public class AddCustomerFormController implements Initializable {
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
 
-            String nextIndex = String.format("C%03d", Integer.parseInt(resultSet.getString(1).split("[C]")[1])+1);
+            String nextIndex = String.format("C%03d", Integer.parseInt(resultSet.getString(1).split("[C]")[1]) + 1);
             TxtId.setText(nextIndex);
 
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        ComboBoxTitle.setValue(null);
+        TxtName.setText(null);TxtAddress.setText(null);DatePickerDOB.setValue(null);TxtSalary.setText(null);TxtAddress.setText(null);TxtCity.setText(null);TxtProvince.setText(null);TxtPostalCode.setText(null);
 
+    }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        clearAddForm();
+        ComboBoxTitle.setItems(FXCollections.observableArrayList("Mr.", "Mrs.", "Miss", "Ms"));
 
-
-        ComboBoxTitle.setItems(FXCollections.observableArrayList("Mr.","Mrs.","Miss","Ms"));
     }
 }
