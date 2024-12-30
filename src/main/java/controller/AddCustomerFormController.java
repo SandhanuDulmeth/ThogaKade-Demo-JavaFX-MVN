@@ -77,8 +77,9 @@ public class AddCustomerFormController implements Initializable {
 
 
     @FXML
-    void btnAddOnAction(ActionEvent event) throws SQLException {
-        System.out.println("l");
+    public void btnAddOnAction(ActionEvent event) throws SQLException {
+        int i=0;
+
         if (ComboBoxTitle.getValue() != null) {
             Connection connection = DBConnection.getINSTANCE().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO customer VALUES(?,?,?,?,?,?,?,?,?)");
@@ -91,19 +92,21 @@ public class AddCustomerFormController implements Initializable {
             preparedStatement.setString(7, TxtCity.getText());
             preparedStatement.setString(8, TxtProvince.getText());
             preparedStatement.setString(9, TxtPostalCode.getText());
-//           int i = preparedStatement.executeUpdate();
-//            if (i > 0) {
-//                new Alert(Alert.AlertType.INFORMATION, "Added").show();
-//            } else {
-//                new Alert(Alert.AlertType.ERROR, "Added Fail").show();
-//            }
+             i = preparedStatement.executeUpdate();
+
         } else {
             new Alert(Alert.AlertType.ERROR, "Please Select a Title").show();
+        }
+        if(i>0){
+            new Alert(Alert.AlertType.INFORMATION, "Added").show();
+            clearAddForm();
+        }else{
+            new Alert(Alert.AlertType.ERROR, "Not Added").show();
         }
     }
 
     @FXML
-    void btnClearOnAction(ActionEvent event) {
+    public void btnClearOnAction(ActionEvent event) {
         clearAddForm();
     }
 
@@ -135,8 +138,33 @@ public class AddCustomerFormController implements Initializable {
     }
 
     public void btnSearchRemoveOnAction(ActionEvent actionEvent) {
+        Connection connection = null;
+        int i=0;
+        try {
+            connection = DBConnection.getINSTANCE().getConnection();
+
+            PreparedStatement stm = connection.prepareStatement("DELETE FROM customer WHERE CustID = ?");
+            stm.setObject(1, TxtId1.getText());
+             i = stm.executeUpdate();
 
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        if (i>0) new Alert(Alert.AlertType.INFORMATION, "Removed " + TxtId1.getText()).show();
+        else new Alert(Alert.AlertType.INFORMATION, "Not Removed " + TxtId1.getText()).show();
+
+        TxtId1.setText(null);
+        TxtTitle1.setText(null);
+        TxtName1.setText(null);
+       TxtDate1.setText(null);
+       TxtSalary1.setText(null);
+       TxtAddress1.setText(null);
+       TxtCity1.setText(null);
+       TxtPostalCode1.setText(null);
+       TxtProvince1.setText(null);
+
+        clearAddForm();
 
 
 
