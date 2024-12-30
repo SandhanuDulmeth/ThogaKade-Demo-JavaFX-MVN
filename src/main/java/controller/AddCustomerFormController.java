@@ -19,6 +19,8 @@ import java.util.ResourceBundle;
 public class AddCustomerFormController implements Initializable {
 
     public JFXTextField TxtTitle1;
+
+    public JFXTextField TxtDate1;
     @FXML
     private JFXComboBox ComboBoxTitle;
 
@@ -150,7 +152,7 @@ public class AddCustomerFormController implements Initializable {
             if (resultSet.next()){
                TxtTitle1.setText(resultSet.getString(2));
                TxtName1.setText(resultSet.getString(3));
-              DatePickerDOB.setValue(LocalDate.parse(resultSet.getString(4)));
+             TxtDate1.setText(String.valueOf(LocalDate.parse(resultSet.getString(4))));
                TxtSalary1.setText(resultSet.getString(5));
                TxtAddress1.setText(resultSet.getString(6));
                TxtCity1.setText(resultSet.getString(7));
