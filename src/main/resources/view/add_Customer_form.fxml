@@ -53,12 +53,12 @@
                         <JFXTextField fx:id="TxtName1" editable="false" layoutX="59.0" layoutY="216.0" prefHeight="25.0" prefWidth="268.0" promptText="Customer Name" />
                         <JFXTextField fx:id="TxtAddress1" editable="false" layoutX="490.0" layoutY="116.0" prefHeight="25.0" prefWidth="268.0" promptText="Customer Address" />
                         <JFXTextField fx:id="TxtSalary1" editable="false" layoutX="59.0" layoutY="312.0" prefHeight="25.0" prefWidth="268.0" promptText="Customer Salary" />
-                        <JFXComboBox fx:id="ComboBoxTitle1" accessibleRole="CHECK_BOX" layoutX="59.0" layoutY="168.0" promptText="Customer Title" />
                         <DatePicker fx:id="DatePickerDOB1" layoutX="59.0" layoutY="269.0" />
                         <JFXTextField fx:id="TxtCity1" layoutX="490.0" layoutY="168.0" prefHeight="25.0" prefWidth="268.0" promptText="City" />
                         <JFXTextField fx:id="TxtProvince1" editable="false" layoutX="490.0" layoutY="216.0" prefHeight="25.0" prefWidth="268.0" promptText="Province" />
                         <JFXTextField fx:id="TxtPostalCode1" editable="false" layoutX="490.0" layoutY="269.0" prefHeight="25.0" prefWidth="268.0" promptText="Postal Code" />
                         <JFXButton layoutX="420.0" layoutY="387.0" onAction="#btnSearchRemoveOnAction" prefHeight="41.0" prefWidth="112.0" ripplerFill="#f2f2f2" style="-fx-background-color: green;" text="Remove" textFill="WHITE" />
+                        <JFXTextField fx:id="TxtTitle1" layoutX="59.0" layoutY="168.0" onKeyReleased="#OnSreachKeyReleased" prefHeight="25.0" prefWidth="268.0" promptText="Customer Title" />
                      </children></AnchorPane>
             </content>
           </Tab>
