@@ -1,0 +1,41 @@
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-table-cell-border-color: transparent;
+    -fx-control-inner-background: transparent;
+    -fx-control-inner-background-alt: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #000000; /* Black text color for readability */
+    -fx-font-size: 14px; /* Adjust font size as needed */
+}
+
+.table-view .table-cell:focused {
+    -fx-background-color: rgba(255, 255, 255, 0.4); /* Highlight focused cell */
+    -fx-text-fill: #000000;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: rgba(255, 255, 255, 0.5); /* Alternate row styling */
+}
+
+.table-view .table-row-cell:even {
+    -fx-background-color: rgba(240, 240, 240, 0.5);
+}
+
+.table-view .column-header {
+    -fx-background-color: rgba(255, 200, 100, 0.8); /* Match header background to theme */
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER; /* Center-align header text */
+}
