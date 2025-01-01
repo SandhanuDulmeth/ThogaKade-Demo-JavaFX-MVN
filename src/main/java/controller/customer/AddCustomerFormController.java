@@ -1,19 +1,24 @@
-package controller;
+package controller.customer;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import db.DBConnection;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import model.Customer;
 
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AddCustomerFormController implements Initializable {
@@ -21,6 +26,7 @@ public class AddCustomerFormController implements Initializable {
     public JFXTextField TxtTitle1;
 
     public JFXTextField TxtDate1;
+    public TableView tblCustomer;
     @FXML
     private JFXComboBox ComboBoxTitle;
 
@@ -132,6 +138,11 @@ public class AddCustomerFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
+        loadTable();
         clearAddForm();
         ComboBoxTitle.setItems(FXCollections.observableArrayList("Mr.", "Mrs.", "Miss", "Ms"));
 
@@ -195,5 +206,10 @@ public class AddCustomerFormController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    private void loadTable(){
+        tblCustomer.getItems().clear();
+
+        tblCustomer.setItems(CustomerController.getInstance().getAll());
     }
 }

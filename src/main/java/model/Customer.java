@@ -11,5 +11,5 @@ public class Customer {
     private String Id;
     private String Name;
     private String Address;
-    private String Salary;
+    private Double Salary;
 }
