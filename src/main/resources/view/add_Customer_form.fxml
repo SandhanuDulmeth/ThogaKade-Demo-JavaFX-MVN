@@ -21,7 +21,7 @@
             <Image url="@../img/ui.png" />
          </image>
       </ImageView>
-      <TabPane layoutX="44.0" layoutY="43.0" prefHeight="491.0" prefWidth="763.0" stylesheets="@../css/tabPane.css" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="44.0" layoutY="43.0" prefHeight="489.0" prefWidth="789.0" stylesheets="@../css/tabPane.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Add Customer Form">
             <content>
@@ -89,17 +89,17 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="227.0" prefWidth="278.0">
                      <children>
-                        <TableView fx:id="tblCustomer" layoutX="32.0" layoutY="38.0" prefHeight="335.0" prefWidth="681.0" stylesheets="@../css/table.css">
+                        <TableView fx:id="tblCustomer" layoutX="4.0" layoutY="38.0" prefHeight="335.0" prefWidth="738.0" stylesheets="@../css/table.css">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
-                              <TableColumn prefWidth="75.0" text="C2" />
-                              <TableColumn prefWidth="75.0" text="C2" />
-                              <TableColumn prefWidth="75.0" text="C2" />
-                              <TableColumn prefWidth="75.0" text="C2" />
-                              <TableColumn prefWidth="75.0" text="C2" />
-                              <TableColumn prefWidth="75.0" text="C2" />
-                              <TableColumn prefWidth="75.0" text="C2" />
+                            <TableColumn fx:id="colCustID" prefWidth="75.0" text="CustID" />
+                            <TableColumn fx:id="colCustTitle" prefWidth="64.0" text="CustTitle" />
+                              <TableColumn fx:id="colCustName" prefWidth="74.0" text="CustName" />
+                              <TableColumn fx:id="colDOB" prefWidth="90.0" text="DOB" />
+                              <TableColumn fx:id="colsalary" prefWidth="72.0" text="Salary" />
+                              <TableColumn fx:id="colCustAddress" prefWidth="132.0" text="CustAddress" />
+                              <TableColumn fx:id="colCity" prefWidth="69.0" text="City" />
+                              <TableColumn fx:id="colProvince" prefWidth="79.0" text="Province" />
+                              <TableColumn fx:id="colPostalCode" prefWidth="81.0" text="PostalCode" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>
