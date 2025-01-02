@@ -23,7 +23,7 @@ public class ItemController implements  ItemService{
     @Override
     public List<Item> getAll() {
         List<Item> customerList=new ArrayList<>();
-        //ObservableList<Customer> customerObservableList = FXCollections.observableArrayList();
+
         try {
             ResultSet resultSet = DBConnection.getINSTANCE()
                     .getConnection().
@@ -31,10 +31,7 @@ public class ItemController implements  ItemService{
                     .executeQuery("SELECT * FROM item");
 
             while (resultSet.next()){
-//                String id=resultSet.getString(1);
-//                String name=resultSet.getString(2);
-//                String address=resultSet.getString(3);
-//                Double salary= resultSet.getDouble(4);
+
 
 
                 customerList.add(new Item(resultSet.getString(1),
@@ -82,12 +79,44 @@ public class ItemController implements  ItemService{
 
     @Override
     public boolean updateCustomer(Item item) {
-        return false;
+        Connection connection = null;
+        try {
+            connection = DBConnection.getINSTANCE().getConnection();
+
+            PreparedStatement stm = connection.prepareStatement("UPDATE item SET Description = ?, PackSize = ?, UnitPrice = ?, QtyOnHand = ? WHERE ItemCode = ?");
+            stm.setObject(5, item.getItemCode());
+            stm.setObject(1, item.getDescription());
+            stm.setObject(2, item.getPackSize());
+            stm.setObject(3, item.getUnitPrice());
+            stm.setObject(4, item.getQtyOnHand());
+
+           // int i = stm.executeUpdate();
+            return stm.executeUpdate()>0;
+
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     @Override
-    public boolean dateleCustomer(Item item) {
-        return false;
+    public boolean dateleCustomer(String Id) {
+        Connection connection = null;
+        try {
+            connection = DBConnection.getINSTANCE().getConnection();
+
+            PreparedStatement stm = connection.prepareStatement("DELETE FROM item WHERE ItemCode = ?");
+            stm.setObject(1,Id);
+           return stm.executeUpdate()>0;
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 
     @Override
@@ -107,18 +136,10 @@ public class ItemController implements  ItemService{
                         resultSet.getDouble(4),
                         resultSet.getInt(5)
                 );
-                //TxtName.setText(resultSet.getString(2));
-                // TxtAddress.setText(resultSet.getString(3));
-                //TxtSalary.setText(resultSet.getString(4));
+
                 return item;
             }
-//            else{
-//
-//                TxtName.setText(null);
-//                TxtAddress.setText(null);
-//                TxtSalary.setText(null);
-//
-//            }
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

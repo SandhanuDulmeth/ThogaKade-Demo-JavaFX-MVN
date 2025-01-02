@@ -1,6 +1,7 @@
 package controller.item;
 
 import com.jfoenix.controls.JFXTextField;
+import db.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,6 +15,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.Item;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -64,26 +67,23 @@ public class ItemFormController  implements Initializable {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-//        Connection connection = null;
-//        try {
-//            connection = DBConnection.getInstance().getConnection();
-//
-//            PreparedStatement stm = connection.prepareStatement("DELETE FROM customer WHERE id = ?");
-//            stm.setObject(1, txtId1.getText());
-//            stm.executeUpdate();
-//
-//
-//        } catch (ClassNotFoundException | SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//        new Alert(Alert.AlertType.INFORMATION, "Removed " + txtId.getText()).show();
-//        txtId1.setText(null);
-//        txtTitle1.setText(null);
-//        txtAuthor1.setText(null);
-//        txtpublishedYear1.setText(null);
-//        txtGenre1.setText(null);
-//        txtPrice1.setText(null);
-//        loadTable();
+
+
+        if( ItemController.getInstance().dateleCustomer(TxtItemCode.getText())){
+            new Alert(Alert.AlertType.INFORMATION, "Removed " + TxtItemCode.getText()).show();
+       TxtDescription.setText(null);
+        TxtPackSize.setText(null);
+        TxtUnitPrice.setText(null);
+        TxtUnitPrice.setText(null);
+       TxtQtyOnHand.setText(null);
+
+        loadTable();
+
+        }else{
+
+            new Alert(Alert.AlertType.INFORMATION, "Not Removed ").show();
+        }
+
     }
 
     @FXML
@@ -107,6 +107,28 @@ public class ItemFormController  implements Initializable {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+//        stm.setObject(5, TxtItemCode.getText());
+//        stm.setObject(1, TxtDescription.getText());
+//        stm.setObject(2, TxtPackSize.getText());
+//        stm.setObject(3, TxtUnitPrice.getText());
+//        stm.setObject(4, TxtQtyOnHand.getText());
+
+
+
+        if ( ItemController.getInstance().updateCustomer(
+                new Item( TxtItemCode.getText(),
+                        TxtDescription.getText(),
+                        TxtPackSize.getText(),
+                        Double.parseDouble(TxtUnitPrice.getText()) ,
+                        Integer.parseInt(TxtQtyOnHand.getText())
+                ))) {
+            new Alert(Alert.AlertType.INFORMATION, "Updated " ).show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Not Updated " ).show();
+        }
+
+
+        loadTable();
 
     }
 

@@ -11,7 +11,7 @@ public interface ItemService {
 
     boolean updateCustomer(Item item);
 
-    boolean dateleCustomer(Item item);
+    boolean dateleCustomer(String Id);
 
     Item searchCustomer(String Id);
 }
