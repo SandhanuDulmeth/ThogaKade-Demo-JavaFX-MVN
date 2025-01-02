@@ -10,54 +10,54 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="476.0" prefWidth="505.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.item.ItemFormController">
+<AnchorPane prefHeight="465.0" prefWidth="494.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.item.ItemFormController">
    <children>
-      <ImageView fitHeight="522.0" fitWidth="499.0" layoutX="5.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="522.0" fitWidth="499.0" layoutX="-5.0" layoutY="-33.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="../img/uiItem.png" />
+            <Image url="@../img/uiItem.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="405.0" layoutY="227.0" onAction="#btnDeleteOnAction" prefHeight="38.0" prefWidth="56.0" style="-fx-background-color: red;" text="Delete" textFill="#161616">
+      <JFXButton layoutX="395.0" layoutY="217.0" onAction="#btnDeleteOnAction" prefHeight="38.0" prefWidth="56.0" style="-fx-background-color: red;" text="Delete" textFill="#161616">
          <font>
             <Font name="Book Antiqua Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="TxtId" focusColor="#dfeb58" layoutX="72.0" layoutY="103.0" promptText="ID" style="-fx-text-fill: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="TxtItemCode" focusColor="#dfeb58" layoutX="62.0" layoutY="93.0" promptText="ItemCode" style="-fx-text-fill: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField fx:id="TxtName" focusColor="#dfeb58" layoutX="298.0" layoutY="103.0" promptText="Name" style="-fx-text-fill: white;" unFocusColor="WHITE" />
-      <JFXTextField fx:id="TxtAddress" focusColor="#dfeb58" layoutX="72.0" layoutY="175.0" promptText="Address" style="-fx-text-fill: white;" unFocusColor="WHITE" />
-      <JFXTextField fx:id="TxtSalary" focusColor="#dfeb58" layoutX="298.0" layoutY="175.0" promptText="Salary" style="-fx-text-fill: white;" unFocusColor="WHITE" />
-      <TableView fx:id="tblCustomer" layoutX="54.0" layoutY="287.0" prefHeight="169.0" prefWidth="425.0">
-         <columns>
-            <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
-            <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
-            <TableColumn fx:id="colAddress" prefWidth="134.6666717529297" text="Address" />
-            <TableColumn fx:id="colSalary" prefWidth="138.00002034505206" text="Salary" />
-         </columns>
+         </font></JFXTextField>
+      <JFXTextField fx:id="TxtPackSize" focusColor="#dfeb58" layoutX="288.0" layoutY="93.0" promptText="PackSize" style="-fx-text-fill: white;" unFocusColor="WHITE" />
+      <JFXTextField fx:id="TxtDescription" focusColor="#dfeb58" layoutX="62.0" layoutY="165.0" promptText="Description" style="-fx-text-fill: white;" unFocusColor="WHITE" />
+      <JFXTextField fx:id="TxtQtyOnHand" focusColor="#dfeb58" layoutX="288.0" layoutY="165.0" promptText="QtyOnHand" style="-fx-text-fill: white;" unFocusColor="WHITE" />
+      <TableView fx:id="tblCustomer" layoutX="44.0" layoutY="277.0" prefHeight="169.0" prefWidth="425.0">
+        <columns>
+          <TableColumn fx:id="colItemCode" prefWidth="75.0" text="ItemCode" />
+          <TableColumn fx:id="colDescription" prefWidth="75.0" text="Description" />
+            <TableColumn fx:id="colPackSize" prefWidth="96.0" text="PackSize" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="77.0" text="UnitPrice" />
+            <TableColumn fx:id="colQtyOnHand" prefWidth="101.0" text="QtyOnHand" />
+        </columns>
       </TableView>
-      <JFXButton layoutX="207.0" layoutY="227.0" onAction="#btnAddOnAction" prefHeight="38.0" prefWidth="56.0" style="-fx-background-color: yellow;" text="Add">
+      <JFXButton layoutX="197.0" layoutY="217.0" onAction="#btnAddOnAction" prefHeight="38.0" prefWidth="56.0" style="-fx-background-color: yellow;" text="Add">
          <font>
             <Font name="Book Antiqua Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="270.0" layoutY="227.0" onAction="#btnUpdateOnAction" prefHeight="38.0" prefWidth="56.0" style="-fx-background-color: blue;" text="Update">
+      <JFXButton layoutX="260.0" layoutY="217.0" onAction="#btnUpdateOnAction" prefHeight="38.0" prefWidth="56.0" style="-fx-background-color: blue;" text="Update">
          <font>
             <Font name="Book Antiqua Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="337.0" layoutY="227.0" onAction="#btnSearchOnAction" prefHeight="38.0" prefWidth="56.0" style="-fx-background-color: green;" text="Search">
+      <JFXButton layoutX="327.0" layoutY="217.0" onAction="#btnSearchOnAction" prefHeight="38.0" prefWidth="56.0" style="-fx-background-color: green;" text="Search">
          <font>
             <Font name="Book Antiqua Bold" size="12.0" />
          </font>
       </JFXButton>
-      <Label layoutX="170.0" layoutY="40.0" prefHeight="33.0" prefWidth="242.0" text="Item From" textFill="#ed3030">
+      <Label layoutX="160.0" layoutY="30.0" prefHeight="33.0" prefWidth="242.0" text="Item From" textFill="#ed3030">
          <font>
             <Font name="Bauhaus 93" size="33.0" />
          </font>
       </Label>
+      <JFXTextField fx:id="TxtUnitPrice" focusColor="#dfeb58" layoutX="288.0" layoutY="133.0" promptText="UnitPrice" style="-fx-text-fill: white;" unFocusColor="WHITE" />
    </children>
 </AnchorPane>

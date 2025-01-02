@@ -21,21 +21,23 @@ import java.util.ResourceBundle;
 public class ItemFormController  implements Initializable {
 
 
-    public TableColumn colId;
-    public TableColumn colName;
-    public TableColumn colAddress;
-    public TableColumn colSalary;
+    public TableColumn colItemCode;
+    public TableColumn colDescription;
+    public TableColumn colPackSize;
+    public TableColumn colUnitPrice;
+    public TableColumn colQtyOnHand;
+    public JFXTextField TxtUnitPrice;
     @FXML
-    private JFXTextField TxtAddress;
+    private JFXTextField TxtDescription;
 
     @FXML
-    private JFXTextField TxtId;
+    private JFXTextField TxtItemCode;
 
     @FXML
-    private JFXTextField TxtName;
+    private JFXTextField TxtPackSize;
 
     @FXML
-    private JFXTextField TxtSalary;
+    private JFXTextField TxtQtyOnHand;
 
     @FXML
     private TableView<Item> tblCustomer;
@@ -45,15 +47,17 @@ public class ItemFormController  implements Initializable {
 
 
         if (ItemController.getInstance().saveCustomer(new Item(
-                TxtId.getText(),
-                TxtName.getText(),
-                TxtAddress.getText(),
-                Double.parseDouble(TxtSalary.getText())
+                TxtItemCode.getText(),
+                TxtDescription.getText(),
+                TxtPackSize.getText(),
+                Double.parseDouble(TxtUnitPrice.getText()),
+               Integer.parseInt(TxtQtyOnHand.getText())
+
         ))
         ) {
-            new Alert(Alert.AlertType.INFORMATION, "Added " + TxtId.getText()).show();
+            new Alert(Alert.AlertType.INFORMATION, "Added " + TxtItemCode.getText()).show();
         } else {
-            new Alert(Alert.AlertType.ERROR, "Not Added " + TxtId.getText()).show();
+            new Alert(Alert.AlertType.ERROR, "Not Added " + TxtItemCode.getText()).show();
         }
         loadTable();
     }
@@ -85,16 +89,17 @@ public class ItemFormController  implements Initializable {
     @FXML
     void btnSearchOnAction(ActionEvent event) {
 
-        Item item = ItemController.getInstance().searchCustomer(TxtId.getText());
+        Item item = ItemController.getInstance().searchCustomer(TxtItemCode.getText());
         if (!(item ==null)){
-
-            TxtName.setText(item.getName());
-            TxtAddress.setText(item.getAddress());
-            TxtSalary.setText(String.valueOf(item.getSalary()));
+            TxtDescription.setText(item.getDescription());
+            TxtPackSize.setText(item.getPackSize());
+            TxtUnitPrice.setText(String.valueOf(item.getUnitPrice()));
+            TxtQtyOnHand.setText(String.valueOf(item.getQtyOnHand()));
         }else{
-            TxtName.setText(null);
-            TxtAddress.setText(null);
-            TxtSalary.setText(null);
+            TxtPackSize.setText(null);
+            TxtDescription.setText(null);
+            TxtQtyOnHand.setText(null);
+            TxtUnitPrice.setText(null);
         }
 
 
@@ -121,10 +126,11 @@ public class ItemFormController  implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-        colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
+        colItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        colPackSize.setCellValueFactory(new PropertyValueFactory<>("packSize"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        colQtyOnHand.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
         loadTable();
         tblCustomer.getSelectionModel().selectedItemProperty().addListener((observableValue, olddValue, newValue) -> {
             if(newValue!=null){
@@ -139,10 +145,11 @@ public class ItemFormController  implements Initializable {
     }
 
     private void  setTextToValues(Item item){
-        TxtId.setText(item.getId());
-        TxtName.setText(item.getName());
-        TxtAddress.setText(item.getAddress());
-        TxtSalary.setText(item.getSalary()+"");
+        TxtItemCode.setText(item.getItemCode());
+        TxtPackSize.setText(item.getPackSize());
+        TxtDescription.setText(item.getDescription());
+        TxtUnitPrice.setText(String.valueOf(item.getUnitPrice()));
+        TxtQtyOnHand.setText(String.valueOf(item.getQtyOnHand()));
 
     }
 }
