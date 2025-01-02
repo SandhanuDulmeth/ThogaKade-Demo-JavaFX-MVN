@@ -18,7 +18,7 @@
    <children>
       <ImageView fitHeight="592.0" fitWidth="884.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/ui.png" />
+            <Image url="@../img/uiCustomer.png" />
          </image>
       </ImageView>
       <TabPane layoutX="44.0" layoutY="43.0" prefHeight="489.0" prefWidth="789.0" stylesheets="@../css/tabPane.css" tabClosingPolicy="UNAVAILABLE">
