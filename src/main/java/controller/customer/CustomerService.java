@@ -12,5 +12,5 @@ public interface CustomerService {
 
     boolean UpdateCustomer(Customer customer);
 
-    Customer searchCustomer(String name);
+    Customer searchCustomer(String CusID);
 }

@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardFormController">
+<AnchorPane prefHeight="400.0" prefWidth="393.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardFormController">
    <children>
-      <JFXButton layoutX="235.0" layoutY="121.0" onAction="#btnAddCustomerOnAction" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: #99ff33;" text="Add Customer" />
-      <JFXButton layoutX="235.0" layoutY="175.0" onAction="#btnViewCustomerOnAction" style="-fx-background-color: #ff8000;" text="View Customer" />
+      <ImageView fitHeight="400.0" fitWidth="586.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/DashBoard.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="126.0" layoutY="130.0" onAction="#btnAddCustomerOnAction" prefHeight="30.0" prefWidth="148.0" style="-fx-background-color: #99ff33;" text=" Customer Crud">
+         <font>
+            <Font name="Bookman Old Style Bold" size="14.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="127.0" layoutY="178.0" onAction="#btnViewCustomerOnAction" prefHeight="30.0" prefWidth="148.0" style="-fx-background-color: #ff8000;" text="View Customer">
+         <font>
+            <Font name="Bookman Old Style Bold" size="14.0" />
+         </font></JFXButton>
+      <Label layoutX="101.0" layoutY="50.0" prefHeight="48.0" prefWidth="231.0" text="Dash Borad" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="40.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

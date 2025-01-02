@@ -169,21 +169,26 @@ public class AddCustomerFormController implements Initializable {
     }
 
     public void btnSearchRemoveOnAction(ActionEvent actionEvent) {
-        Connection connection = null;
-        int i = 0;
-        try {
-            connection = DBConnection.getINSTANCE().getConnection();
-
-            PreparedStatement stm = connection.prepareStatement("DELETE FROM customer WHERE CustID = ?");
-            stm.setObject(1, TxtId1.getText());
-            i = stm.executeUpdate();
 
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        if (i > 0) new Alert(Alert.AlertType.INFORMATION, "Removed " + TxtId1.getText()).show();
+        if ( CustomerController.getInstance().deleteCustomer(TxtId.getText())   ) new Alert(Alert.AlertType.INFORMATION, "Removed " + TxtId1.getText()).show();
         else new Alert(Alert.AlertType.INFORMATION, "Not Removed " + TxtId1.getText()).show();
+
+//        Connection connection = null;
+//        int i = 0;
+//        try {
+//            connection = DBConnection.getINSTANCE().getConnection();
+//
+//            PreparedStatement stm = connection.prepareStatement("DELETE FROM customer WHERE CustID = ?");
+//            stm.setObject(1, TxtId1.getText());
+//            i = stm.executeUpdate();
+//
+//
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//        if (i > 0) new Alert(Alert.AlertType.INFORMATION, "Removed " + TxtId1.getText()).show();
+//        else new Alert(Alert.AlertType.INFORMATION, "Not Removed " + TxtId1.getText()).show();
 
         TxtId1.setText(null);
         TxtTitle1.setText(null);
@@ -196,33 +201,16 @@ public class AddCustomerFormController implements Initializable {
         TxtProvince1.setText(null);
 
         clearAddForm();
+        loadTable();
 
 
     }
 
     public void OnSreachKeyReleased(KeyEvent keyEvent) {
-        Connection connection = null;
-        try {
-            connection = DBConnection.getINSTANCE().getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Customer WHERE CustID=? ");
-            preparedStatement.setString(1, TxtId1.getText());
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                TxtTitle1.setText(resultSet.getString(2));
-                TxtName1.setText(resultSet.getString(3));
-                TxtDate1.setText(String.valueOf(LocalDate.parse(resultSet.getString(4))));
-                TxtSalary1.setText(resultSet.getString(5));
-                TxtAddress1.setText(resultSet.getString(6));
-                TxtCity1.setText(resultSet.getString(7));
-                TxtProvince1.setText(resultSet.getString(8));
-                TxtPostalCode1.setText(resultSet.getString(9));
 
-            }
+        CustomerController.getInstance().searchCustomer(TxtId.getText());
 
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     private void loadTable() {
