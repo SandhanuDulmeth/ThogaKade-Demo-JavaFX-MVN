@@ -170,25 +170,10 @@ public class AddCustomerFormController implements Initializable {
     public void btnSearchRemoveOnAction(ActionEvent actionEvent) {
 
 
-        if (CustomerController.getInstance().deleteCustomer(TxtId.getText()))
+        if (CustomerController.getInstance().deleteCustomer(TxtId1.getText()))
             new Alert(Alert.AlertType.INFORMATION, "Removed " + TxtId1.getText()).show();
         else new Alert(Alert.AlertType.INFORMATION, "Not Removed " + TxtId1.getText()).show();
 
-//        Connection connection = null;
-//        int i = 0;
-//        try {
-//            connection = DBConnection.getINSTANCE().getConnection();
-//
-//            PreparedStatement stm = connection.prepareStatement("DELETE FROM customer WHERE CustID = ?");
-//            stm.setObject(1, TxtId1.getText());
-//            i = stm.executeUpdate();
-//
-//
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//        if (i > 0) new Alert(Alert.AlertType.INFORMATION, "Removed " + TxtId1.getText()).show();
-//        else new Alert(Alert.AlertType.INFORMATION, "Not Removed " + TxtId1.getText()).show();
 
         TxtId1.setText(null);
         TxtTitle1.setText(null);
