@@ -104,8 +104,7 @@ public class AddCustomerFormController implements Initializable {
                     Double.parseDouble(TxtSalary.getText()),
                     TxtAddress.getText(), TxtCity.getText(),
                     TxtProvince.getText(),
-                    TxtPostalCode.getText())))
-            {
+                    TxtPostalCode.getText()))) {
                 new Alert(Alert.AlertType.INFORMATION, "Added").show();
                 clearAddForm();
                 loadTable();
@@ -171,7 +170,8 @@ public class AddCustomerFormController implements Initializable {
     public void btnSearchRemoveOnAction(ActionEvent actionEvent) {
 
 
-        if ( CustomerController.getInstance().deleteCustomer(TxtId.getText())   ) new Alert(Alert.AlertType.INFORMATION, "Removed " + TxtId1.getText()).show();
+        if (CustomerController.getInstance().deleteCustomer(TxtId.getText()))
+            new Alert(Alert.AlertType.INFORMATION, "Removed " + TxtId1.getText()).show();
         else new Alert(Alert.AlertType.INFORMATION, "Not Removed " + TxtId1.getText()).show();
 
 //        Connection connection = null;
@@ -208,9 +208,18 @@ public class AddCustomerFormController implements Initializable {
 
     public void OnSreachKeyReleased(KeyEvent keyEvent) {
 
-        CustomerController.getInstance().searchCustomer(TxtId.getText());
+        Customer customer = CustomerController.getInstance().searchCustomer(TxtId1.getText());
 
-
+        if (null != customer) {
+            TxtTitle1.setText(customer.getCustTitle());
+            TxtName1.setText(customer.getCustName());
+            TxtDate1.setText(String.valueOf(customer.getDOB()));
+            TxtSalary1.setText(String.valueOf(customer.getSalary()));
+            TxtAddress1.setText(customer.getCustAddress());
+            TxtCity1.setText(customer.getCity());
+            TxtProvince1.setText(customer.getProvince());
+            TxtPostalCode1.setText(customer.getPostalCode());
+        }
     }
 
     private void loadTable() {
