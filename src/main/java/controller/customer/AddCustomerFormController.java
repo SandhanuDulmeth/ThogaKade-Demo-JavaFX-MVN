@@ -235,14 +235,14 @@ public class AddCustomerFormController implements Initializable {
     public void btnSearchUpdateOnAction(ActionEvent actionEvent) {
 
         if (CustomerController.getInstance().UpdateCustomer(new Customer(
-                TxtId.getText(),
-                (String) ComboBoxTitle.getValue(),
-                TxtName.getText(),
-                Date.valueOf(DatePickerDOB.getValue()),
-                Double.parseDouble(TxtSalary.getText()),
-                TxtAddress.getText(), TxtCity.getText(),
-                TxtProvince.getText(),
-                TxtPostalCode.getText()
+                TxtId11.getText(),
+                TxtTitle11.getText(),
+                TxtName11.getText(),
+                Date.valueOf(TxtDate11.getText()) ,
+                Double.parseDouble(TxtSalary11.getText()),
+                TxtAddress11.getText(), TxtCity11.getText(),
+                TxtProvince11.getText(),
+                TxtPostalCode11.getText()
         ))) {
             new Alert(Alert.AlertType.INFORMATION, "Updated " ).show();
         } else {

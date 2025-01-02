@@ -108,21 +108,23 @@ public class CustomerController implements CustomerService {
         try {
             connection = DBConnection.getINSTANCE().getConnection();
 
-            PreparedStatement stm = connection.prepareStatement("UPDATE book SET Title = ?, Author = ?, PublishedYear = ?, Genre = ?, Price = ? WHERE BookID = ?");
-            stm.setObject(6, txtId2.getText());
-            stm.setObject(1, txtTitle2.getText());
-            stm.setObject(2, txtAuthor2.getText());
-            stm.setObject(3, txtpublishedYear2.getText());
-            stm.setObject(4, txtGenre2.getText());
-            stm.setObject(5, txtPrice2.getText());
-          //  int i = stm.executeUpdate();
+            PreparedStatement stm = connection.prepareStatement("UPDATE customer SET CustTitle = ?, CustName = ?, DOB = ?, salary = ?, CustAddress = ?,City = ?,Province = ?,PostalCode=? WHERE CustID = ?");
+            stm.setObject(9, customer.getCustID());
+            stm.setObject(1, customer.getCustTitle());
+            stm.setObject(2, customer.getCustName());
+            stm.setObject(3, customer.getDOB());
+            stm.setObject(4, customer.getSalary());
+            stm.setObject(5, customer.getCustAddress());
+            stm.setObject(6, customer.getCity());
+            stm.setObject(7, customer.getProvince());
+            stm.setObject(8, customer.getPostalCode());
+            //  int i = stm.executeUpdate();
 
-
-return stm.executeUpdate()>0;
-        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println("u");
+            return stm.executeUpdate() > 0;
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return false;
     }
 
     @Override
