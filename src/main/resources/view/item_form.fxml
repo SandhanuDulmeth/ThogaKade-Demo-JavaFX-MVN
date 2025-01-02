@@ -12,24 +12,24 @@
 
 <AnchorPane prefHeight="465.0" prefWidth="494.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.item.ItemFormController">
    <children>
-      <ImageView fitHeight="522.0" fitWidth="499.0" layoutX="-5.0" layoutY="-33.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="512.0" fitWidth="509.0" layoutX="-5.0" layoutY="-33.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/uiItem.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="395.0" layoutY="217.0" onAction="#btnDeleteOnAction" prefHeight="38.0" prefWidth="56.0" style="-fx-background-color: red;" text="Delete" textFill="#161616">
+      <JFXButton layoutX="395.0" layoutY="236.0" onAction="#btnDeleteOnAction" prefHeight="38.0" prefWidth="56.0" style="-fx-background-color: red;" text="Delete" textFill="#161616">
          <font>
             <Font name="Book Antiqua Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="TxtItemCode" focusColor="#dfeb58" layoutX="62.0" layoutY="93.0" promptText="ItemCode" style="-fx-text-fill: white;" unFocusColor="WHITE">
+      <JFXTextField fx:id="TxtItemCode" focusColor="#dfeb58" layoutX="57.0" layoutY="93.0" promptText="ItemCode" style="-fx-text-fill: white;" unFocusColor="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></JFXTextField>
       <JFXTextField fx:id="TxtPackSize" focusColor="#dfeb58" layoutX="288.0" layoutY="93.0" promptText="PackSize" style="-fx-text-fill: white;" unFocusColor="WHITE" />
-      <JFXTextField fx:id="TxtDescription" focusColor="#dfeb58" layoutX="62.0" layoutY="165.0" promptText="Description" style="-fx-text-fill: white;" unFocusColor="WHITE" />
-      <JFXTextField fx:id="TxtQtyOnHand" focusColor="#dfeb58" layoutX="288.0" layoutY="165.0" promptText="QtyOnHand" style="-fx-text-fill: white;" unFocusColor="WHITE" />
-      <TableView fx:id="tblCustomer" layoutX="44.0" layoutY="277.0" prefHeight="169.0" prefWidth="425.0">
+      <JFXTextField fx:id="TxtDescription" focusColor="#dfeb58" layoutX="57.0" layoutY="165.0" promptText="Description" style="-fx-text-fill: white;" unFocusColor="WHITE" />
+      <JFXTextField fx:id="TxtQtyOnHand" focusColor="#dfeb58" layoutX="288.0" layoutY="178.0" promptText="QtyOnHand" style="-fx-text-fill: white;" unFocusColor="WHITE" />
+      <TableView fx:id="tblCustomer" layoutX="41.0" layoutY="293.0" prefHeight="169.0" prefWidth="425.0">
         <columns>
           <TableColumn fx:id="colItemCode" prefWidth="75.0" text="ItemCode" />
           <TableColumn fx:id="colDescription" prefWidth="75.0" text="Description" />
@@ -38,17 +38,17 @@
             <TableColumn fx:id="colQtyOnHand" prefWidth="101.0" text="QtyOnHand" />
         </columns>
       </TableView>
-      <JFXButton layoutX="197.0" layoutY="217.0" onAction="#btnAddOnAction" prefHeight="38.0" prefWidth="56.0" style="-fx-background-color: yellow;" text="Add">
+      <JFXButton layoutX="192.0" layoutY="236.0" onAction="#btnAddOnAction" prefHeight="38.0" prefWidth="56.0" style="-fx-background-color: yellow;" text="Add">
          <font>
             <Font name="Book Antiqua Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="260.0" layoutY="217.0" onAction="#btnUpdateOnAction" prefHeight="38.0" prefWidth="56.0" style="-fx-background-color: blue;" text="Update">
+      <JFXButton layoutX="260.0" layoutY="236.0" onAction="#btnUpdateOnAction" prefHeight="38.0" prefWidth="56.0" style="-fx-background-color: blue;" text="Update">
          <font>
             <Font name="Book Antiqua Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="327.0" layoutY="217.0" onAction="#btnSearchOnAction" prefHeight="38.0" prefWidth="56.0" style="-fx-background-color: green;" text="Search">
+      <JFXButton layoutX="328.0" layoutY="236.0" onAction="#btnSearchOnAction" prefHeight="38.0" prefWidth="56.0" style="-fx-background-color: green;" text="Search">
          <font>
             <Font name="Book Antiqua Bold" size="12.0" />
          </font>

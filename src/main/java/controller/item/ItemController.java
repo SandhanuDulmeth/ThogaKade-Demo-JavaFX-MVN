@@ -97,7 +97,7 @@ public class ItemController implements  ItemService{
         try {
             connection = DBConnection.getINSTANCE().getConnection();
 
-            PreparedStatement stm = connection.prepareStatement("SELECT * FROM customer WHERE id = ?");
+            PreparedStatement stm = connection.prepareStatement("SELECT * FROM item WHERE ItemCode = ?");
             stm.setObject(1, Id);
             ResultSet resultSet = stm.executeQuery();
             if (resultSet.next()) {
