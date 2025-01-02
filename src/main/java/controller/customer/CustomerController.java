@@ -104,7 +104,24 @@ public class CustomerController implements CustomerService {
 
     @Override
     public boolean UpdateCustomer(Customer customer) {
+        Connection connection = null;
+        try {
+            connection = DBConnection.getINSTANCE().getConnection();
 
+            PreparedStatement stm = connection.prepareStatement("UPDATE book SET Title = ?, Author = ?, PublishedYear = ?, Genre = ?, Price = ? WHERE BookID = ?");
+            stm.setObject(6, txtId2.getText());
+            stm.setObject(1, txtTitle2.getText());
+            stm.setObject(2, txtAuthor2.getText());
+            stm.setObject(3, txtpublishedYear2.getText());
+            stm.setObject(4, txtGenre2.getText());
+            stm.setObject(5, txtPrice2.getText());
+          //  int i = stm.executeUpdate();
+
+
+return stm.executeUpdate()>0;
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException(e);
+        }
         return false;
     }
 
