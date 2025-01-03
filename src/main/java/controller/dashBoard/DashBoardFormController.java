@@ -9,28 +9,36 @@ import java.io.IOException;
 
 public class DashBoardFormController {
 
-    @FXML
-    void btnAddCustomerOnAction(ActionEvent event) {
+
+    public void btnCustomerFormOnAction(ActionEvent actionEvent) {
         Stage stage=new Stage();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/add_Customer_form.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../view/add_Customer_form.fxml"))));
+            stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        stage.show();
     }
 
-    @FXML
-    void btnViewCustomerOnAction(ActionEvent event) {
+    public void btnItemFormOnAction(ActionEvent actionEvent) {
         Stage stage=new Stage();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/item_form.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../view/item_form.fxml"))));
+            stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        stage.show();
     }
 
+    public void btnPlaceOrderFormOnAction(ActionEvent actionEvent) {
+        Stage stage=new Stage();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../view/Place_Order_form.fxml"))));
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
+}
 
 
