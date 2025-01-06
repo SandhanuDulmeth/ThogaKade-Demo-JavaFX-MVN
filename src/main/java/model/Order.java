@@ -9,12 +9,11 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Item {
+public class Order {
     String itemCode;
     String description;
-    String packSize;
-    Double unitPrice;
     Integer qtyOnHand;
-
+    Double unitPrice;
+    Double total;
 
 }

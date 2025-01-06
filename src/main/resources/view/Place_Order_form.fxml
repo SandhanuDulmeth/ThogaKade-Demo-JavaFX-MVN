@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.placeOrder.PlaceOrderFormController">
+<AnchorPane prefHeight="425.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.placeOrder.PlaceOrderFormController">
    <children>
-      <TableView layoutX="155.0" layoutY="234.0" prefHeight="119.0" prefWidth="378.0">
+      <TableView fx:id="tblItem" layoutX="128.0" layoutY="218.0" prefHeight="119.0" prefWidth="378.0">
         <columns>
           <TableColumn fx:id="colItemCode" prefWidth="75.0" text="ItemCode" />
             <TableColumn fx:id="colDescription" prefWidth="75.0" text="Description" />
@@ -20,16 +20,16 @@
             <TableColumn fx:id="colTotal" prefWidth="75.0" text="Total" />
         </columns>
       </TableView>
-      <JFXComboBox fx:id="ComboBoxItemCode" layoutX="48.0" layoutY="163.0" />
-      <Label layoutX="49.0" layoutY="132.0" text="Item Code" />
-      <Label layoutX="153.0" layoutY="133.0" prefHeight="17.0" prefWidth="71.0" text="Description" />
-      <Label layoutX="273.0" layoutY="131.0" prefHeight="17.0" prefWidth="56.0" text="PackSize" />
-      <Label layoutX="352.0" layoutY="133.0" text="UnitPrice" />
-      <Label layoutX="440.0" layoutY="133.0" text="QtyOnHand" />
-      <JFXTextField fx:id="TxtDescription" layoutX="131.0" layoutY="163.0" />
-      <JFXTextField fx:id="TxtUnitPrice" layoutX="344.0" layoutY="168.0" prefHeight="25.0" prefWidth="64.0" />
-      <JFXTextField fx:id="TxtPacksize" layoutX="273.0" layoutY="163.0" prefHeight="25.0" prefWidth="56.0" />
-      <JFXTextField fx:id="TxtQtyOnHand" layoutX="436.0" layoutY="156.0" prefHeight="25.0" prefWidth="64.0" />
+      <JFXComboBox fx:id="ComboBoxItemCode" layoutX="27.0" layoutY="163.0" />
+      <Label layoutX="27.0" layoutY="133.0" text="Item Code" />
+      <Label layoutX="125.0" layoutY="133.0" prefHeight="17.0" prefWidth="71.0" text="Description" />
+      <Label layoutX="245.0" layoutY="133.0" prefHeight="17.0" prefWidth="56.0" text="PackSize" />
+      <Label layoutX="328.0" layoutY="133.0" text="UnitPrice" />
+      <Label layoutX="408.0" layoutY="133.0" text="QtyOnHand" />
+      <JFXTextField fx:id="TxtDescription" layoutX="123.0" layoutY="163.0" prefHeight="25.0" prefWidth="93.0" />
+      <JFXTextField fx:id="TxtUnitPrice" layoutX="320.0" layoutY="163.0" prefHeight="25.0" prefWidth="64.0" />
+      <JFXTextField fx:id="TxtPacksize" layoutX="245.0" layoutY="163.0" prefHeight="25.0" prefWidth="56.0" />
+      <JFXTextField fx:id="TxtQtyOnHand" layoutX="408.0" layoutY="163.0" prefHeight="25.0" prefWidth="64.0" />
       <Label layoutX="301.0" layoutY="25.0" text="Place Order">
          <font>
             <Font name="Book Antiqua Bold" size="31.0" />
@@ -41,7 +41,7 @@
       <Label layoutX="571.0" layoutY="73.0" text="Name" />
       <Label layoutX="111.0" layoutY="36.0" text="ID" />
       <Label layoutX="39.0" layoutY="73.0" text="Customer ID : " />
-      <JFXButton layoutX="551.0" layoutY="169.0" onAction="#btnADDOnAction" style="-fx-background-color: #F1EE19;" text="ADD">
+      <JFXButton layoutX="587.0" layoutY="163.0" onAction="#btnADDOnAction" style="-fx-background-color: #F1EE19;" text="ADD">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -51,5 +51,8 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
+      <JFXTextField fx:id="TxtQtyWant" layoutX="501.0" layoutY="163.0" prefHeight="25.0" prefWidth="48.0" />
+      <Label layoutX="501.0" layoutY="133.0" text="QtyWant" />
+      <JFXButton layoutX="265.0" layoutY="354.0" onAction="#btnClearTablesOnAction" text="ClearTables" />
    </children>
 </AnchorPane>
