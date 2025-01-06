@@ -11,12 +11,13 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.placeOrder.PlaceOrderFormController">
    <children>
-      <TableView layoutX="177.0" layoutY="244.0" prefHeight="119.0" prefWidth="304.0">
+      <TableView layoutX="155.0" layoutY="234.0" prefHeight="119.0" prefWidth="378.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="colItemCode" prefWidth="75.0" text="ItemCode" />
+            <TableColumn fx:id="colDescription" prefWidth="75.0" text="Description" />
+            <TableColumn fx:id="colQTY" prefWidth="75.0" text="QTY" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="75.0" text="UnitPrice" />
+            <TableColumn fx:id="colTotal" prefWidth="75.0" text="Total" />
         </columns>
       </TableView>
       <JFXComboBox fx:id="ComboBoxItemCode" layoutX="48.0" layoutY="163.0" />
@@ -40,12 +41,12 @@
       <Label layoutX="571.0" layoutY="73.0" text="Name" />
       <Label layoutX="111.0" layoutY="36.0" text="ID" />
       <Label layoutX="39.0" layoutY="73.0" text="Customer ID : " />
-      <JFXButton layoutX="551.0" layoutY="169.0" style="-fx-background-color: #F1EE19;" text="ADD">
+      <JFXButton layoutX="551.0" layoutY="169.0" onAction="#btnADDOnAction" style="-fx-background-color: #F1EE19;" text="ADD">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="218.0" layoutY="77.0" style="-fx-background-color: #75EA46;" text="New Customer">
+      <JFXButton layoutX="218.0" layoutY="77.0" onAction="#btnNewCustomerOnAction" style="-fx-background-color: #75EA46;" text="New Customer">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
