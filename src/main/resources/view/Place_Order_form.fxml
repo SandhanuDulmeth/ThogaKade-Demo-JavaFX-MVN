@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="425.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.placeOrder.PlaceOrderFormController">
+<AnchorPane prefHeight="401.0" prefWidth="644.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.placeOrder.PlaceOrderFormController">
    <children>
       <TableView fx:id="tblItem" layoutX="128.0" layoutY="218.0" prefHeight="119.0" prefWidth="378.0">
         <columns>
@@ -36,9 +36,9 @@
          </font>
       </Label>
       <Label layoutX="40.0" layoutY="36.0" text="Order ID : " />
-      <JFXComboBox layoutX="125.0" layoutY="69.0" />
-      <Label layoutX="468.0" layoutY="73.0" text="Custoemr Name :" />
-      <Label layoutX="571.0" layoutY="73.0" text="Name" />
+      <JFXComboBox fx:id="ComboBoxCustomerCode" layoutX="125.0" layoutY="69.0" />
+      <Label layoutX="468.0" layoutY="73.0" text="Customer Name :" />
+      <Label fx:id="LblCustomerName" layoutX="571.0" layoutY="73.0" text="Name" />
       <Label layoutX="111.0" layoutY="36.0" text="ID" />
       <Label layoutX="39.0" layoutY="73.0" text="Customer ID : " />
       <JFXButton layoutX="587.0" layoutY="163.0" onAction="#btnADDOnAction" style="-fx-background-color: #F1EE19;" text="ADD">
@@ -53,6 +53,11 @@
       </JFXButton>
       <JFXTextField fx:id="TxtQtyWant" layoutX="501.0" layoutY="163.0" prefHeight="25.0" prefWidth="48.0" />
       <Label layoutX="501.0" layoutY="133.0" text="QtyWant" />
-      <JFXButton layoutX="265.0" layoutY="354.0" onAction="#btnClearTablesOnAction" text="ClearTables" />
+      <JFXButton layoutX="265.0" layoutY="354.0" onAction="#btnClearTablesOnAction" style="-fx-background-color: #FE9900;" text="ClearTables">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="TxtTotalPrice" layoutX="535.0" layoutY="346.0" text="Label" />
    </children>
 </AnchorPane>

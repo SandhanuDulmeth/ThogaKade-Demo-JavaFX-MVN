@@ -9,10 +9,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.Customer;
 import model.Item;
 import model.Order;
 
@@ -24,6 +26,9 @@ public class PlaceOrderFormController implements Initializable {
 
     public TableView tblItem;
     public JFXTextField TxtQtyWant;
+    public JFXComboBox ComboBoxCustomerCode;
+    public Label LblCustomerName;
+    public Label TxtTotalPrice;
     @FXML
     private JFXComboBox ComboBoxItemCode;
 
@@ -54,6 +59,8 @@ public class PlaceOrderFormController implements Initializable {
     @FXML
     private TableColumn colUnitPrice;
 
+    private Double TotalPrice;
+
     @FXML
     void btnADDOnAction(ActionEvent event) {
         ObservableList items = tblItem.getItems();
@@ -62,7 +69,9 @@ public class PlaceOrderFormController implements Initializable {
         Double total = unitPrice * qty;
         String itemCodeText = (String) ComboBoxItemCode.getValue();
         items.add(new Order(itemCodeText, TxtDescription.getText(), qty, unitPrice, total));
+        TotalPrice = TotalPrice + total;
         tblItem.setItems(items);
+        TxtTotalPrice.setText(TotalPrice+"");
     }
 
     @FXML
@@ -80,14 +89,16 @@ public class PlaceOrderFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        TotalPrice=0d;
         colItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         colQTY.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
 
+
         ObservableList<Object> objects = FXCollections.observableArrayList();
-        for (Item item : PlaceOrderController.getInstance().getAll()) {
+        for (Item item : PlaceOrderController.getInstance().getAllItem()) {
             objects.add(item.getItemCode());
         }
         ComboBoxItemCode.setItems(objects);
@@ -96,15 +107,42 @@ public class PlaceOrderFormController implements Initializable {
         ComboBoxItemCode.valueProperty().addListener((obs, oldValue, newValue) -> {
             System.out.println("Selected Item: " + newValue);
 
-            handleComboBoxSelection((String) newValue);
+
+            handleComboBoxSelectionItemCode((String) newValue);
+        });
+        ObservableList<Object> objects2 = FXCollections.observableArrayList();
+        for (Customer customer : PlaceOrderController.getInstance().getAllCustomer()) {
+            objects2.add(customer.getCustID());
+        }
+        ComboBoxCustomerCode.setItems(objects2);
+
+        ComboBoxCustomerCode.valueProperty().addListener((obs, oldValue, newValue) -> {
+            System.out.println("Selected Item: " + newValue);
+            handleComboBoxSelectionCustomerCode((String) newValue);
+
         });
     }
+    private void handleComboBoxSelectionCustomerCode(String selectedCustomerCode) {
+        if (selectedCustomerCode != null) {
 
-    // Method to handle ComboBox selection
-    private void handleComboBoxSelection(String selectedItemCode) {
+            for (Customer custoemrCode : PlaceOrderController.getInstance().getAllCustomer()) {
+                if (custoemrCode.getCustID().equals(selectedCustomerCode)) {
+
+                    LblCustomerName.setText(custoemrCode.getCustName());
+
+                    break;
+                }
+            }
+        } else {
+            LblCustomerName.setText(null);
+
+        }
+    }
+
+    private void handleComboBoxSelectionItemCode(String selectedItemCode) {
         if (selectedItemCode != null) {
 
-            for (Item item : PlaceOrderController.getInstance().getAll()) {
+            for (Item item : PlaceOrderController.getInstance().getAllItem()) {
                 if (item.getItemCode().equals(selectedItemCode)) {
 
                     TxtDescription.setText(item.getDescription());
@@ -126,7 +164,9 @@ public class PlaceOrderFormController implements Initializable {
 
     public void btnClearTablesOnAction(ActionEvent actionEvent) {
         tblItem.getItems().clear();
+        TotalPrice=0d;
 
+        TxtTotalPrice.setText(null);
 
     }
 }
